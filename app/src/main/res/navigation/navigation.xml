@@ -14,9 +14,20 @@
             android:id="@+id/action_mainFragment_to_germanPageFragment"
             app:destination="@id/germanPageFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/germanPageFragment"
         android:name="com.example.languagenotes.germanpage.GermanPageFragment"
         android:label="GermanPageFragment"
-        tools:layout="@layout/german_fragment"/>
+        tools:layout="@layout/german_fragment">
+        <action
+            android:id="@+id/action_germanPageFragment_to_germanNumbersFragment"
+            app:destination="@id/germanNumbersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/germanNumbersFragment"
+        android:name="com.example.languagenotes.germanpage.GermanNumbersFragment"
+        android:label="GermanNumbersFragment"
+        tools:layout="@layout/german_numbers_fragment"/>
 </navigation>

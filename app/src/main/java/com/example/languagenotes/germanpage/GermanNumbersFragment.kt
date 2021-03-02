@@ -6,21 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.example.languagenotes.R
 import com.example.languagenotes.databinding.GermanFragmentBinding
+import com.example.languagenotes.databinding.GermanNumbersFragmentBinding
 
-class GermanPageFragment : Fragment() {
-
+class GermanNumbersFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
-        val binding: GermanFragmentBinding = DataBindingUtil.inflate(
-            inflater, R.layout.german_fragment, container, false)
-
-        binding.numbersButton.setOnClickListener {  view : View ->
-            view.findNavController().navigate(R.id.action_germanPageFragment_to_germanNumbersFragment)
-        }
+        val binding: GermanNumbersFragmentBinding = DataBindingUtil.inflate(
+                inflater, R.layout.german_numbers_fragment, container, false)
 
         return binding.root
     }

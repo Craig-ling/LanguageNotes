@@ -5,34 +5,22 @@
 
     <data>
         <variable
-            name="germanViewModel"
-            type="com.example.languagenotes.germanpage.GermanPageFragment" />
+            name="germanNumbersViewModel"
+            type="com.example.languagenotes.germanpage.GermanNumbersFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/german"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_placeholder"
+        <ImageView
+            android:id="@+id/dice_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/numbers_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Numbers"
-            app:layout_constraintBottom_toTopOf="@+id/text_placeholder"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.475" />
+            app:srcCompat="@drawable/dice_1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
