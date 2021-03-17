@@ -16,6 +16,9 @@ class NumberPageFragment : Fragment() {
         val binding: FragmentNumberPageBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_number_page, container, false)
 
+        val arguments = NumberPageFragmentArgs.fromBundle(requireArguments())
+        val langNum = arguments.languageKey
+
         return binding.root
     }
 }

@@ -21,10 +21,17 @@
         <action
             android:id="@+id/action_languagePageFragment_to_numberPageFragment"
             app:destination="@id/numberPageFragment" />
+        <argument
+            android:name="languageKey"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/numberPageFragment"
         android:name="com.example.languagenotes.numberpage.NumberPageFragment"
         android:label="NumberPageFragment"
-        tools:layout="@layout/fragment_number_page"/>
+        tools:layout="@layout/fragment_number_page">
+        <argument
+            android:name="languageKey"
+            app:argType="integer" />
+    </fragment>
 </navigation>

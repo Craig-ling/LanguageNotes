@@ -6,17 +6,14 @@ import androidx.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.languagenotes.R
 import com.example.languagenotes.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-//    companion object {
-//        fun newInstance() = MainFragment()
-//    }
-
-//    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -24,17 +21,19 @@ class MainFragment : Fragment() {
         val binding: FragmentMainBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_main, container, false)
 
+
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        binding.mainViewModel = viewModel
+
+        // Set lifecycle owner to observe LiveData in the view model.
+        binding.lifecycleOwner = this
+
         binding.germanButton.setOnClickListener{ view : View ->
-            view.findNavController().navigate(R.id.action_mainFragment_to_languagePageFragment)
+            view.findNavController().navigate(MainFragmentDirections
+                .actionMainFragmentToLanguagePageFragment(0))
         }
 
         return binding.root
     }
-
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-//        // TODO: Use the ViewModel
-//    }
 
 }
