@@ -1,4 +1,4 @@
-package com.example.languagenotes.germanpage
+package com.example.languagenotes.languagepage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,18 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.languagenotes.R
-import com.example.languagenotes.databinding.GermanFragmentBinding
+import com.example.languagenotes.databinding.FragmentLanguagePageBinding
 
-class GermanPageFragment : Fragment() {
+class LanguagePageFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
-        val binding: GermanFragmentBinding = DataBindingUtil.inflate(
-            inflater, R.layout.german_fragment, container, false)
+        val binding: FragmentLanguagePageBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_language_page, container, false)
 
         binding.numbersButton.setOnClickListener {  view : View ->
-            view.findNavController().navigate(R.id.action_germanPageFragment_to_germanNumbersFragment)
+            view.findNavController().navigate(R.id.action_languagePageFragment_to_numberPageFragment)
         }
 
         return binding.root

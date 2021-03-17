@@ -6,7 +6,7 @@
     <data>
         <variable
             name="germanViewModel"
-            type="com.example.languagenotes.germanpage.GermanPageFragment" />
+            type="com.example.languagenotes.languagepage.LanguagePageFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

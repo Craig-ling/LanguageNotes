@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="germanNumbersViewModel"
-            type="com.example.languagenotes.germanpage.GermanNumbersFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

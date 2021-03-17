@@ -4,30 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation.xml"
     app:startDestination="@id/mainFragment">
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.languagenotes.ui.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/main_fragment">
+        tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_mainFragment_to_germanPageFragment"
-            app:destination="@id/germanPageFragment" />
+            android:id="@+id/action_mainFragment_to_languagePageFragment"
+            app:destination="@id/languagePageFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/germanPageFragment"
-        android:name="com.example.languagenotes.germanpage.GermanPageFragment"
-        android:label="GermanPageFragment"
-        tools:layout="@layout/german_fragment">
+        android:id="@+id/languagePageFragment"
+        android:name="com.example.languagenotes.languagepage.LanguagePageFragment"
+        android:label="LanguagePageFragment"
+        tools:layout="@layout/fragment_language_page">
         <action
-            android:id="@+id/action_germanPageFragment_to_germanNumbersFragment"
-            app:destination="@id/germanNumbersFragment" />
+            android:id="@+id/action_languagePageFragment_to_numberPageFragment"
+            app:destination="@id/numberPageFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/germanNumbersFragment"
-        android:name="com.example.languagenotes.germanpage.GermanNumbersFragment"
-        android:label="GermanNumbersFragment"
-        tools:layout="@layout/german_numbers_fragment"/>
+        android:id="@+id/numberPageFragment"
+        android:name="com.example.languagenotes.numberpage.NumberPageFragment"
+        android:label="NumberPageFragment"
+        tools:layout="@layout/fragment_number_page"/>
 </navigation>
