@@ -1,4 +1,6 @@
 package com.example.languagenotes.languagepage
 
-class LanguagePageViewModel {
+import androidx.lifecycle.ViewModel
+
+class LanguagePageViewModel : ViewModel() {
 }
