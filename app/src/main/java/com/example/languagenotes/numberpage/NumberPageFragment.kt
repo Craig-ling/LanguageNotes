@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.languagenotes.R
 import com.example.languagenotes.databinding.FragmentNumberPageBinding
 import com.example.languagenotes.languages.German
-import com.example.languagenotes.languages.Language
 
 class NumberPageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -20,11 +20,19 @@ class NumberPageFragment : Fragment() {
 
         val arguments = NumberPageFragmentArgs.fromBundle(requireArguments())
         val langNum = arguments.languageKey
-        val lang: Language
 
-        when (langNum) {
-            0 -> lang = German()
-        }
+//        when (langNum) {
+//            0 -> viewModelFactory = NumberPageViewModelFactory(German())
+//        }
+
+        val viewModelFactory: NumberPageViewModelFactory = NumberPageViewModelFactory(German())
+
+        val numberPageViewModel = ViewModelProvider(this, viewModelFactory)
+                .get(NumberPageViewModel::class.java)
+
+        // binding.numberPageViewModel = numberPageViewModel
+
+
 
         return binding.root
     }

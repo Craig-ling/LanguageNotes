@@ -41,7 +41,7 @@
             android:id="@+id/number_text"
             android:layout_width="93dp"
             android:layout_height="51dp"
-            android:text="TextView"
+            android:text="test"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
