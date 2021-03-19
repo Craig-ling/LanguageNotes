@@ -32,20 +32,30 @@ class NumberPageFragment : Fragment() {
 //        }
 
         val viewModelFactory: NumberPageViewModelFactory = NumberPageViewModelFactory(German())
-
         val numberPageViewModel = ViewModelProvider(this, viewModelFactory)
                 .get(NumberPageViewModel::class.java)
 
         binding.numberPageViewModel = numberPageViewModel
 
-        numberPageViewModel.setNumber(12)
+        // Observes changes of LiveData in the ViewModel
+        binding.lifecycleOwner = this
 
         numberPageViewModel.genNumberBegin.observe(viewLifecycleOwner, Observer { itBool ->
             if (itBool) {
                 val numList = numberPageViewModel.generateNumbers()
                 Log.i("NumberPageFragment", "$numList")
-                setDigitImage(numList[0], binding.firstDigit)
-                setDigitImage(numList[1], binding.secondDigit)
+                val dig1 = numList[0]
+                val dig2 = numList[1]
+                setDigitImage(dig1, binding.firstDigit)
+                setDigitImage(dig2, binding.secondDigit)
+                var genNumber = ""
+                genNumber = if (dig1 != 0) {
+                    "$dig1$dig2"
+                } else {
+                    "$dig2"
+                }
+                Log.i("NumberPageFragment", genNumber)
+                numberPageViewModel.setNumber(genNumber.toInt())
                 numberPageViewModel.endGenerateNumber()
             }
         })

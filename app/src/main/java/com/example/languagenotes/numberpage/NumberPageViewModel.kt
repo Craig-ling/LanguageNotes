@@ -1,5 +1,6 @@
 package com.example.languagenotes.numberpage
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,8 @@ class NumberPageViewModel(inLang: Language): ViewModel() {
         get() = _genNumberBegin
 
     fun setNumber(num: Int) {
+        Log.i("NumberPageViewModel", "$num")
+        Log.i("NumberPageViewModel", numberMap[num]?: "null")
         _numberText.value = numberMap[num]
     }
 
