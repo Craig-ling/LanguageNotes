@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toStartOf="@+id/second_digit"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.258"
-            app:srcCompat="@drawable/one"
+            app:srcCompat="@drawable/zero"
             tools:srcCompat="@drawable/five"/>
 
         <ImageView
@@ -37,7 +37,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.258"
-            app:srcCompat="@drawable/two"
+            app:srcCompat="@drawable/zero"
             tools:srcCompat="@drawable/eight"/>
 
         <TextView
@@ -52,6 +52,18 @@
             tools:text="number text"/>
 
         <Button
+            android:id="@+id/generate_number_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generate_number"
+            android:onClick="@{() -> numberPageViewModel.beginGenerateNumber()}"
+            app:layout_constraintBottom_toTopOf="@+id/number_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179" />
+
+        <Button
             android:id="@+id/reveal_number_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,15 +73,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/number_text" />
 
-        <Button
-            android:id="@+id/generate_number_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/generate_number"
-            app:layout_constraintBottom_toTopOf="@+id/number_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.179" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
