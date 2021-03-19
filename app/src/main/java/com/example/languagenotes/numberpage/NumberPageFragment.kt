@@ -40,10 +40,12 @@ class NumberPageFragment : Fragment() {
         // Observes changes of LiveData in the ViewModel
         binding.lifecycleOwner = this
 
+        numberPageViewModel.hideNumberText()
+
+        // TODO: Clean this up (modularize)
         numberPageViewModel.genNumberBegin.observe(viewLifecycleOwner, Observer { itBool ->
             if (itBool) {
                 val numList = numberPageViewModel.generateNumbers()
-                Log.i("NumberPageFragment", "$numList")
                 val dig1 = numList[0]
                 val dig2 = numList[1]
                 setDigitImage(dig1, binding.firstDigit)
@@ -54,8 +56,7 @@ class NumberPageFragment : Fragment() {
                 } else {
                     "$dig2"
                 }
-                Log.i("NumberPageFragment", genNumber)
-                numberPageViewModel.setNumber(genNumber.toInt())
+                numberPageViewModel.setNumberText(genNumber.toInt())
                 numberPageViewModel.endGenerateNumber()
             }
         })
@@ -64,7 +65,6 @@ class NumberPageFragment : Fragment() {
     }
 
     private fun setDigitImage(num: Int, imgView: ImageView) {
-        Log.i("NumberPageFragment", "$num")
         when(num) {
             0 -> imgView.setImageResource(R.drawable.zero)
             1 -> imgView.setImageResource(R.drawable.one)

@@ -10,6 +10,7 @@
             name="numberPageViewModel"
             type="com.example.languagenotes.numberpage.NumberPageViewModel"
             />
+        <import type="android.view.View"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,6 +48,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@{String.valueOf(numberPageViewModel.numberText)}"
             android:textSize="24sp"
+            android:visibility="@{numberPageViewModel.numberTextVisible ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reveal_number"
+            android:onClick="@{() -> numberPageViewModel.revealNumberText()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,6 +1,8 @@
 package com.example.languagenotes.numberpage
 
 import android.util.Log
+import android.view.View
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,14 +21,17 @@ class NumberPageViewModel(inLang: Language): ViewModel() {
     val genNumberBegin: LiveData<Boolean>
         get() = _genNumberBegin
 
-    fun setNumber(num: Int) {
-        Log.i("NumberPageViewModel", "$num")
-        Log.i("NumberPageViewModel", numberMap[num]?: "null")
+    private val _numberTextVisible = MutableLiveData<Boolean>()
+    val numberTextVisible: LiveData<Boolean>
+        get() = _numberTextVisible
+
+    fun setNumberText(num: Int) {
         _numberText.value = numberMap[num]
     }
 
     fun beginGenerateNumber() {
         _genNumberBegin.value = true
+        hideNumberText()
     }
 
     fun endGenerateNumber() {
@@ -35,6 +40,14 @@ class NumberPageViewModel(inLang: Language): ViewModel() {
 
     fun generateNumbers() : List<Int> {
         return listOf(Random.nextInt(0, 10), Random.nextInt(0,10))
+    }
+
+    fun hideNumberText() {
+        _numberTextVisible.value = false
+    }
+
+    fun revealNumberText() {
+        _numberTextVisible.value = true
     }
 
 }
