@@ -30,8 +30,9 @@ class NumberPageFragment : Fragment() {
         val numberPageViewModel = ViewModelProvider(this, viewModelFactory)
                 .get(NumberPageViewModel::class.java)
 
-        // binding.numberPageViewModel = numberPageViewModel
+        binding.numberPageViewModel = numberPageViewModel
 
+        numberPageViewModel.setNumber(12)
 
 
         return binding.root

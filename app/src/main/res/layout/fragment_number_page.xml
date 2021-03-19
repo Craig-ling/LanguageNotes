@@ -6,7 +6,10 @@
 <!-- TODO: Fix number image formatting -->
 
     <data>
-
+        <variable
+            name="numberPageViewModel"
+            type="com.example.languagenotes.numberpage.NumberPageViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,11 +44,32 @@
             android:id="@+id/number_text"
             android:layout_width="93dp"
             android:layout_height="51dp"
-            android:text="test"
+            android:text="@{String.valueOf(numberPageViewModel.numberText)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="number text"/>
+
+        <Button
+            android:id="@+id/reveal_number_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reveal_number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/number_text" />
+
+        <Button
+            android:id="@+id/generate_number_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generate_number"
+            app:layout_constraintBottom_toTopOf="@+id/number_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
