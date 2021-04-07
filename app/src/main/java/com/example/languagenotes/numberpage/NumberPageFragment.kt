@@ -43,26 +43,30 @@ class NumberPageFragment : Fragment() {
 
         numberPageViewModel.hideNumberText()
 
-        // TODO: Clean this up (modularize)
         numberPageViewModel.genNumberBegin.observe(viewLifecycleOwner, Observer { itBool ->
             if (itBool) {
-                val numList = numberPageViewModel.generateNumbers()
-                val dig1 = numList[0]
-                val dig2 = numList[1]
-                setDigitImage(dig1, binding.firstDigit)
-                setDigitImage(dig2, binding.secondDigit)
-                var genNumber = ""
-                genNumber = if (dig1 != 0) {
-                    "$dig1$dig2"
-                } else {
-                    "$dig2"
-                }
+                var genNumber = getStringNumber(numberPageViewModel.generateNumbers(), binding)
                 numberPageViewModel.setNumberText(genNumber.toInt())
                 numberPageViewModel.endGenerateNumber()
             }
         })
 
         return binding.root
+    }
+
+    private fun getStringNumber(numberList: List<Int>, bound: FragmentNumberPageBinding) : String {
+        val dig1 = numberList[0]
+        val dig2 = numberList[1]
+
+        setDigitImage(dig1, bound.firstDigit)
+        setDigitImage(dig2, bound.secondDigit)
+        var genNumber = ""
+        genNumber = if (dig1 != 0) {
+            "$dig1$dig2"
+        } else {
+            "$dig2"
+        }
+        return genNumber
     }
 
     private fun setDigitImage(num: Int, imgView: ImageView) {
