@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.languagenotes.R
 import com.example.languagenotes.databinding.FragmentNumberPageBinding
+import com.example.languagenotes.languages.French
 import com.example.languagenotes.languages.German
 
 class NumberPageFragment : Fragment() {
@@ -25,13 +26,13 @@ class NumberPageFragment : Fragment() {
             inflater, R.layout.fragment_number_page, container, false)
 
         val arguments = NumberPageFragmentArgs.fromBundle(requireArguments())
-        val langNum = arguments.languageKey
 
-//        when (langNum) {
-//            0 -> viewModelFactory = NumberPageViewModelFactory(German())
-//        }
+        val viewModelFactory: NumberPageViewModelFactory = when(arguments.languageKey) {
+            0 -> NumberPageViewModelFactory(German())
+            1 -> NumberPageViewModelFactory(French())
+            else -> throw Exception("Error, language integer not found")
+        }
 
-        val viewModelFactory: NumberPageViewModelFactory = NumberPageViewModelFactory(German())
         val numberPageViewModel = ViewModelProvider(this, viewModelFactory)
                 .get(NumberPageViewModel::class.java)
 
