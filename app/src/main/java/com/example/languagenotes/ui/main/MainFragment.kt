@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.languagenotes.R
@@ -28,12 +29,17 @@ class MainFragment : Fragment() {
         // Set lifecycle owner to observe LiveData in the view model.
         binding.lifecycleOwner = this
 
-        binding.germanButton.setOnClickListener{ view : View ->
-            view.findNavController().navigate(MainFragmentDirections
-                .actionMainFragmentToLanguagePageFragment(0))
-        }
+        navigateToLanguagePageListener(binding.germanButton, 0)
+        navigateToLanguagePageListener(binding.frenchButton, 1)
 
         return binding.root
+    }
+
+    private fun navigateToLanguagePageListener(langButton: Button, langValue: Int) {
+        langButton.setOnClickListener{ view: View ->
+            view.findNavController().navigate(MainFragmentDirections
+                    .actionMainFragmentToLanguagePageFragment(langValue))
+        }
     }
 
 }
