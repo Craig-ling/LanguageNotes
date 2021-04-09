@@ -6,12 +6,13 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.languagenotes.languages.Language
 import kotlin.random.Random
 
-class NumberPageViewModel(inLang: Language): ViewModel() {
+class NumberPageViewModel(language: Language): ViewModel() {
 
-    private val numberMap = inLang.numbers
+    private val numberMap = language.numbers
 
     private val _numberText = MutableLiveData<String>()
     val numberText: LiveData<String>
@@ -49,5 +50,14 @@ class NumberPageViewModel(inLang: Language): ViewModel() {
     fun revealNumberText() {
         _numberTextVisible.value = true
     }
+}
 
+class NumberPageViewModelFactory(private val language: Language) : ViewModelProvider.Factory {
+    @Suppress("unchecked_cast")
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(NumberPageViewModel::class.java)) {
+            return NumberPageViewModel(language) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }

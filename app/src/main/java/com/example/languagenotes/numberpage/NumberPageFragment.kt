@@ -30,7 +30,7 @@ class NumberPageFragment : Fragment() {
         val viewModelFactory: NumberPageViewModelFactory = when(arguments.languageKey) {
             0 -> NumberPageViewModelFactory(German())
             1 -> NumberPageViewModelFactory(French())
-            else -> throw Exception("Error, language integer not found")
+            else -> throw Exception("Error, invalid language key in NumberPageFragment")
         }
 
         val numberPageViewModel = ViewModelProvider(this, viewModelFactory)
