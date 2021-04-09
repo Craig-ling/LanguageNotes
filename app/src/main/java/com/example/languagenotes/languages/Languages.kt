@@ -2,6 +2,7 @@ package com.example.languagenotes.languages
 
 abstract class Language {
     abstract val numbers: HashMap<Int, String>
+    abstract val imageWordPairs: HashMap<String, String>
 }
 
 data class German (
@@ -29,7 +30,11 @@ data class German (
                 87 to "Siebenundachtzig", 88 to "Achtundachtzig", 89 to "Neunundachtzig", 90 to "Neunzig",
                 91 to "Einundneunzig", 92 to "Zweiundneunzig", 93 to "Dreiundneunzig", 94 to "Vierundneunzig",
                 95 to "Fünfundneunzig", 96 to "Sechsundneunzig", 97 to "Siebenundneunzig", 98 to "Achtundneunzig",
-                99 to "Neunundneunzig")) : Language()
+                99 to "Neunundneunzig"),
+        override val imageWordPairs: HashMap<String, String> = hashMapOf("Book" to "Das Buch",
+                "Cat" to "die Katze", "Chair" to "der Stuhl", "Dog" to "der Hund", "Fire" to "das Feuer",
+        "Phone" to "das Handy", "Sun" to "die Sonne", "Ticket" to "die Fahrkarte", "Waiter" to "der Kellner",
+        "water" to "das Wasser")) : Language()
 
 data class French(
         override val numbers: HashMap<Int, String> = hashMapOf(0 to "zero",
@@ -56,4 +61,8 @@ data class French(
         87 to "quatre vingt sept", 88 to "quatre vingt huit", 89 to "quatre vingt neuf", 90 to "quatre vingt dix",
         91 to "quatre vingt onze", 92 to "quatre vingt douze", 93 to "quatre vingt treize",
         94 to "quatre vingt quatorze", 95 to "quatre vingt quinze", 96 to "quatre vingt seize",
-        97 to "quatre-vingt-dix-sept", 98 to "quatre-vingt-dix-huit", 99 to "quatre-vingt-dix-neuf")) : Language()
+        97 to "quatre-vingt-dix-sept", 98 to "quatre-vingt-dix-huit", 99 to "quatre-vingt-dix-neuf"),
+        override val imageWordPairs: HashMap<String, String> = hashMapOf("Book" to "Le Livre", "Cat" to "Le Chat",
+        "Chair" to "La Chaise", "Dog" to "Le Chien", "Fire" to "Le Feu", "Phone" to "Le Téléphone",
+        "Sun" to "Le Soleil", "Ticket" to "Le Billet", "Waiter" to "Le Serveur",
+         "Water" to "l'Eau")) : Language()
