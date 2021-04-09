@@ -24,12 +24,24 @@
         <argument
             android:name="languageKey"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_languagePageFragment_to_imgquizPageFragment"
+            app:destination="@id/imgquizPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/numberPageFragment"
         android:name="com.example.languagenotes.numberpage.NumberPageFragment"
         android:label="NumberPageFragment"
         tools:layout="@layout/fragment_number_page">
+        <argument
+            android:name="languageKey"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/imgquizPageFragment"
+        android:name="com.example.languagenotes.imgquizpage.ImgquizPageFragment"
+        android:label="ImgquizPageFragment"
+        tools:layout="@layout/fragment_imgquiz_page">
         <argument
             android:name="languageKey"
             app:argType="integer" />

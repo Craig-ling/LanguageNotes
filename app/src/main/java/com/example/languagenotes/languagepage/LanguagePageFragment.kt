@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -21,11 +22,16 @@ class LanguagePageFragment : Fragment() {
             inflater, R.layout.fragment_language_page, container, false)
 
         val arguments = LanguagePageFragmentArgs.fromBundle(requireArguments())
-        var langNum = arguments.languageKey
+        val langNum = arguments.languageKey
 
         binding.numbersButton.setOnClickListener {  view : View ->
             view.findNavController().navigate(LanguagePageFragmentDirections
                     .actionLanguagePageFragmentToNumberPageFragment(langNum))
+        }
+
+        binding.imgquizButton.setOnClickListener{ view: View ->
+            view.findNavController().navigate(LanguagePageFragmentDirections.
+            actionLanguagePageFragmentToImgquizPageFragment(langNum))
         }
 
         return binding.root
