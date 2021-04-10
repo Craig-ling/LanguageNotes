@@ -3,4 +3,5 @@
     <string name="reveal_number">Reveal Number Text</string>
     <string name="generate_number">Generate Number</string>
     <string name="img_quiz_word">Word:</string>
+    <string name="totalQuestionText">Welcome to the end of the quiz. Your score: %1$s</string>
 </resources>

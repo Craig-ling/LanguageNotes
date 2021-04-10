@@ -10,11 +10,14 @@ import kotlin.random.Random
 class ImgquizPageViewModel(language: Language) : ViewModel() {
 
     private val wordImages = language.imageWordPairs
-    private val QTY_QUESTIONS = wordImages.size
     private var questionsAnswered = 0
 
     private var radioList = mutableListOf(1, 2, 3, 4)
     private val radioWordList = mutableListOf<String>()
+
+    private val _totalQuestions = MutableLiveData<Int>()
+    val totalQuestions: LiveData<Int>
+        get() = _totalQuestions
 
     private val _correctCount = MutableLiveData<Int>()
     val correctCount: LiveData<Int>
@@ -45,6 +48,7 @@ class ImgquizPageViewModel(language: Language) : ViewModel() {
         get() = _radioFour
 
     init {
+        _totalQuestions.value = wordImages.size
         _correctCount.value = 0
         _wordList.value = wordImages.keys.toMutableList()
         initializeRadioWords()
