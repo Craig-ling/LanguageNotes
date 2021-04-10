@@ -31,7 +31,7 @@ data class German (
                 91 to "Einundneunzig", 92 to "Zweiundneunzig", 93 to "Dreiundneunzig", 94 to "Vierundneunzig",
                 95 to "Fünfundneunzig", 96 to "Sechsundneunzig", 97 to "Siebenundneunzig", 98 to "Achtundneunzig",
                 99 to "Neunundneunzig"),
-        override val imageWordPairs: HashMap<String, String> = hashMapOf("Book" to "Das Buch",
+        override val imageWordPairs: HashMap<String, String> = hashMapOf("Book" to "das Buch",
                 "Cat" to "die Katze", "Chair" to "der Stuhl", "Dog" to "der Hund", "Fire" to "das Feuer",
         "Phone" to "das Handy", "Sun" to "die Sonne", "Ticket" to "die Fahrkarte", "Waiter" to "der Kellner",
         "water" to "das Wasser")) : Language()

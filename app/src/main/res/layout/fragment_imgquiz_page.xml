@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="RadioButton"
+                android:text="@{imgquizViewModel.radioOne}"
                 android:checked="true"
                 tools:text="benevolentia" />
 
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="RadioButton"
+                android:text="@{imgquizViewModel.radioTwo}"
                 tools:text="iuvencus"/>
 
             <RadioButton
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="RadioButton"
+                android:text="@{imgquizViewModel.radioThree}"
                 tools:text="vallum"/>
 
             <RadioButton
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="RadioButton"
+                android:text="@{imgquizViewModel.radioFour}"
                 tools:text="domicilium"/>
 
         </RadioGroup>
@@ -93,14 +93,14 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Word:" />
+                android:text="@string/img_quiz_word" />
 
             <TextView
                 android:id="@+id/quiz_word"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@{imgquizViewModel.imgWord}"
                 tools:text="volucer"/>
         </LinearLayout>
 

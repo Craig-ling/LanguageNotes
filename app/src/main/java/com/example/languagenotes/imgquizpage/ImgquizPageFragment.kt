@@ -34,7 +34,12 @@ class ImgquizPageFragment : Fragment() {
 
         binding.imgquizViewModel = imgquizViewModel
 
+        // Observes changes of LiveData in the ViewModel
+        binding.lifecycleOwner = this
+
         setImage(binding.quizImage, imgquizViewModel.imgWord.value)
+
+
 
         return binding.root
     }
@@ -49,7 +54,7 @@ class ImgquizPageFragment : Fragment() {
             "Phone" -> imgView.setImageResource(R.drawable.phone)
             "Sun" -> imgView.setImageResource(R.drawable.sun)
             "Ticket" -> imgView.setImageResource(R.drawable.ticket)
-            "Waiter" -> imgView.setImageResource(R.drawable.ticket)
+            "Waiter" -> imgView.setImageResource(R.drawable.waiter)
             "Water" -> imgView.setImageResource(R.drawable.water)
             else -> throw Exception("Error, image string not found in Image Quiz Fragment")
         }
