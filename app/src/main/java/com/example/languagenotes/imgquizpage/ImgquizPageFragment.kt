@@ -1,6 +1,7 @@
 package com.example.languagenotes.imgquizpage
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.languagenotes.R
 import com.example.languagenotes.databinding.FragmentImgquizPageBinding
 import com.example.languagenotes.languages.French
@@ -41,8 +43,10 @@ class ImgquizPageFragment : Fragment() {
 
         binding.imgSubmitButton.setOnClickListener { view: View ->
             val radioID = binding.imgRadioGroup.checkedRadioButtonId
-            var selectedWord: String = ""
+            var selectedWord = ""
             if (-1 != radioID) {
+                imgquizViewModel.incrementAnswered()
+
                 when(radioID) {
                     binding.imgButton1.id -> selectedWord = binding.imgButton1.text.toString()
                     binding.imgButton2.id -> selectedWord = binding.imgButton2.text.toString()
@@ -50,14 +54,20 @@ class ImgquizPageFragment : Fragment() {
                     binding.imgButton4.id -> selectedWord = binding.imgButton4.text.toString()
                 }
 
-                if(selectedWord == imgquizViewModel.imgWord.value) {
+                if(selectedWord == imgquizViewModel.getWordMapValue()) {
+                    Log.i("ImgquizFragment", "Correct recorded")
                     imgquizViewModel.incrementCorrect()
+                    Log.i("ImgquizFragment0", imgquizViewModel.correctCount.value.toString())
                 }
-
-                imgquizViewModel.incrementAnswered()
-                imgquizViewModel.setupQuiz()
-                setImage(binding.quizImage, imgquizViewModel.imgWord.value)
-                binding.imgRadioGroup.clearCheck()
+                if(imgquizViewModel.questionsAnswered >= imgquizViewModel.totalQuestions.value!!) {
+                    view.findNavController().navigate(ImgquizPageFragmentDirections
+                            .actionImgquizPageFragmentToImgquizOverPageFragment(imgquizViewModel.correctCount.value!!))
+                }
+                else {
+                    imgquizViewModel.setupQuiz()
+                    setImage(binding.quizImage, imgquizViewModel.imgWord.value)
+                    binding.imgRadioGroup.clearCheck()
+                }
             }
         }
 

@@ -34,7 +34,7 @@ data class German (
         override val imageWordPairs: HashMap<String, String> = hashMapOf("Book" to "das Buch",
                 "Cat" to "die Katze", "Chair" to "der Stuhl", "Dog" to "der Hund", "Fire" to "das Feuer",
         "Phone" to "das Handy", "Sun" to "die Sonne", "Ticket" to "die Fahrkarte", "Waiter" to "der Kellner",
-        "water" to "das Wasser")) : Language()
+        "Water" to "das Wasser")) : Language()
 
 data class French(
         override val numbers: HashMap<Int, String> = hashMapOf(0 to "zero",

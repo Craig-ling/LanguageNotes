@@ -45,5 +45,17 @@
         <argument
             android:name="languageKey"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_imgquizPageFragment_to_imgquizOverPageFragment"
+            app:destination="@id/imgquizOverPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imgquizOverPageFragment"
+        android:name="com.example.languagenotes.imgquizpage.ImgquizOverPageFragment"
+        android:label="ImgquizOverPageFragment"
+        tools:layout="@layout/fragment_imgquizover_page">
+        <argument
+            android:name="correctAnswers"
+            app:argType="integer" />
     </fragment>
 </navigation>
