@@ -10,6 +10,8 @@ import kotlin.random.Random
 class ImgquizPageViewModel(language: Language) : ViewModel() {
 
     private val wordImages = language.imageWordPairs
+    private val QTY_QUESTIONS = wordImages.size
+    private var questionsAnswered = 0
 
     private var radioList = mutableListOf(1, 2, 3, 4)
     private val radioWordList = mutableListOf<String>()
@@ -45,38 +47,39 @@ class ImgquizPageViewModel(language: Language) : ViewModel() {
     init {
         _correctCount.value = 0
         _wordList.value = wordImages.keys.toMutableList()
-        assignRandomWord()
         initializeRadioWords()
-        assignRadioWords()
+        setupQuiz()
     }
 
-    fun getCurrentWord() : String? {
-        return _imgWord.value
-    }
-
-    fun incrementCount() {
+    fun incrementCorrect() {
         _correctCount.value?.plus(_correctCount.value!!)
     }
 
+    fun incrementAnswered() {
+        questionsAnswered++
+    }
+
+    fun setupQuiz() {
+        assignRandomWord()
+        assignRadioWords()
+    }
+
     private fun assignRandomWord() {
-        _imgWord.value = _wordList.value?.let{it[Random.nextInt(0, it.size)]}
+        _imgWord.value = _wordList.value?.let { it[Random.nextInt(0, it.size)] }
         _wordList.value?.remove(_imgWord.value)
     }
 
     private fun assignRadioWords() {
         var radioList = shuffleList(radioList)
-        // Create a random list of ints, then use it in a for each loop and
-        // call the assignword function each time. use a second random integer to
-        // grab a word from the list, except the first one. remove the assigned words
-        // from the mutable list.
         _imgWord.value?.let { assignWordToRadio(radioList[0], wordImages[it]) }
         radioWordList.remove(_imgWord.value)
         var wordList = shuffleList(radioWordList)
         for (i in 1 until radioList.size) {
             assignWordToRadio(radioList[i], wordImages[wordList[i]])
         }
+        _imgWord.value?.let { radioWordList.add(it) }
     }
-    // Receive a list of random integers, then cycle them and use the when in the loop.
+
     private fun assignWordToRadio(buttonNumber: Int, word: String?) {
         when (buttonNumber) {
             1 -> word?.let{_radioOne.value = it}
@@ -98,7 +101,7 @@ class ImgquizPageViewModel(language: Language) : ViewModel() {
     }
 
     private fun initializeRadioWords() {
-        for ((key, value) in wordImages) {
+        for ((key) in wordImages) {
             radioWordList.add(key)
         }
     }

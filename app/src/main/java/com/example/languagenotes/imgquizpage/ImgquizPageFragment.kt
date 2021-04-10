@@ -39,7 +39,27 @@ class ImgquizPageFragment : Fragment() {
 
         setImage(binding.quizImage, imgquizViewModel.imgWord.value)
 
+        binding.imgSubmitButton.setOnClickListener { view: View ->
+            val radioID = binding.imgRadioGroup.checkedRadioButtonId
+            var selectedWord: String = ""
+            if (-1 != radioID) {
+                when(radioID) {
+                    binding.imgButton1.id -> selectedWord = binding.imgButton1.text.toString()
+                    binding.imgButton2.id -> selectedWord = binding.imgButton2.text.toString()
+                    binding.imgButton3.id -> selectedWord = binding.imgButton3.text.toString()
+                    binding.imgButton4.id -> selectedWord = binding.imgButton4.text.toString()
+                }
 
+                if(selectedWord == imgquizViewModel.imgWord.value) {
+                    imgquizViewModel.incrementCorrect()
+                }
+
+                imgquizViewModel.incrementAnswered()
+                imgquizViewModel.setupQuiz()
+                setImage(binding.quizImage, imgquizViewModel.imgWord.value)
+                binding.imgRadioGroup.clearCheck()
+            }
+        }
 
         return binding.root
     }
