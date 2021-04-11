@@ -55,9 +55,7 @@ class ImgquizPageFragment : Fragment() {
                 }
 
                 if(selectedWord == imgquizViewModel.getWordMapValue()) {
-                    Log.i("ImgquizFragment", "Correct recorded")
                     imgquizViewModel.incrementCorrect()
-                    Log.i("ImgquizFragment0", imgquizViewModel.correctCount.value.toString())
                 }
                 if(imgquizViewModel.questionsAnswered >= imgquizViewModel.totalQuestions.value!!) {
                     view.findNavController().navigate(ImgquizPageFragmentDirections

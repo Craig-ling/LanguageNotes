@@ -17,9 +17,11 @@ class ImgquizOverPageFragment : Fragment() {
                 R.layout.fragment_imgquizover_page, container, false)
 
         val arguments = ImgquizOverPageFragmentArgs.fromBundle(requireArguments())
-        val correct = arguments.correctAnswers
+        val correct = arguments.correctAnswers.toString()
 
-        binding.gameOverText.text = correct.toString()
+        val gameOverText = getString(R.string.imgquiz_over_text, correct)
+
+        binding.gameOverText.text = gameOverText
 
         return binding.root
     }
