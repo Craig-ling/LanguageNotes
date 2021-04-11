@@ -62,7 +62,7 @@ class ImgquizPageViewModel(language: Language) : ViewModel() {
 
     fun incrementCorrect() {
         _correctCount.value?.let {
-            _correctCount.value = _correctCount.value!! + 1
+            _correctCount.value = it + 1
         }
     }
 
