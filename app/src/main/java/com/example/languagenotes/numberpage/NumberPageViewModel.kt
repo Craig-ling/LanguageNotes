@@ -14,7 +14,9 @@ class NumberPageViewModel(language: Language): ViewModel() {
 
     private val numberMap = language.numbers
 
-    private val _numberText = MutableLiveData<String>()
+    private val _numberText = MutableLiveData<String>().apply {
+        value = numberMap[0]
+    }
     val numberText: LiveData<String>
         get() = _numberText
 
