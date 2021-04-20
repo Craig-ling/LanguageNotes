@@ -1,7 +1,6 @@
 package com.example.languagenotes.numberpage
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,13 +59,11 @@ class NumberPageFragment : Fragment() {
 
         setDigitImage(dig1, bound.firstDigit)
         setDigitImage(dig2, bound.secondDigit)
-        var genNumber = ""
-        genNumber = if (dig1 != 0) {
+        return if (dig1 != 0) {
             "$dig1$dig2"
         } else {
             "$dig2"
         }
-        return genNumber
     }
 
     private fun setDigitImage(num: Int, imgView: ImageView) {
