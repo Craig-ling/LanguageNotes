@@ -21,9 +21,10 @@
             android:id="@+id/add_sen_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
+            android:text="@string/add_button"
             app:layout_constraintBaseline_toBaselineOf="@+id/remove_sen_button"
             app:layout_constraintEnd_toStartOf="@+id/remove_sen_button"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -31,20 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="13dp"
-            android:text="Remove"
+            android:text="@string/remove_button"
             app:layout_constraintBottom_toTopOf="@+id/sen_recycler"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/add_sen_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/search_sen_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            app:layout_constraintBaseline_toBaselineOf="@+id/remove_sen_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/remove_sen_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

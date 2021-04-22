@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_languagePageFragment_to_imgquizPageFragment"
             app:destination="@id/imgquizPageFragment" />
+        <action
+            android:id="@+id/action_languagePageFragment_to_commonSentencesPageFragment"
+            app:destination="@id/commonSentencesPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/numberPageFragment"
@@ -56,6 +59,15 @@
         tools:layout="@layout/fragment_imgquizover_page">
         <argument
             android:name="correctAnswers"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commonSentencesPageFragment"
+        android:name="com.example.languagenotes.commonsentencespage.CommonSentencesPageFragment"
+        android:label="CommonSentencesPageFragment"
+        tools:layout="@layout/fragment_commonsentences_page">
+        <argument
+            android:name="languageKey"
             app:argType="integer" />
     </fragment>
 </navigation>

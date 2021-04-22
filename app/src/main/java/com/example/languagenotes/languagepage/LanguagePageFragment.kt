@@ -34,6 +34,12 @@ class LanguagePageFragment : Fragment() {
             actionLanguagePageFragmentToImgquizPageFragment(langNum))
         }
 
+        binding.comsenButton.setOnClickListener{ view ->
+            view.findNavController().navigate(LanguagePageFragmentDirections.
+            actionLanguagePageFragmentToCommonSentencesPageFragment(langNum))
+        }
+
         return binding.root
     }
+
 }

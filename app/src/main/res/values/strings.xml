@@ -4,4 +4,9 @@
     <string name="generate_number">Generate Number</string>
     <string name="img_quiz_word">Word: %1$s</string>
     <string name="imgquiz_over_text">Welcome to the end of the quiz. Your score: %1$s</string>
+    <string name="add_button">Add</string>
+    <string name="remove_button">Remove</string>
+    <string name="comsen_button">Common Sentences</string>
+    <string name="numbers_button">Numbers</string>
+    <string name="image_quiz_button">Image Quiz</string>
 </resources>

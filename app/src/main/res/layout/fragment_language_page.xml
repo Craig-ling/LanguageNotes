@@ -12,9 +12,10 @@
             android:id="@+id/numbers_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numbers"
+            android:text="@string/numbers_button"
             app:layout_constraintBottom_toTopOf="@+id/imgquiz_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,10 +23,22 @@
             android:id="@+id/imgquiz_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="256dp"
-            android:text="Image Quiz"
+            android:text="@string/image_quiz_button"
+            app:layout_constraintBottom_toTopOf="@+id/comsen_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numbers_button" />
+
+        <Button
+            android:id="@+id/comsen_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comsen_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgquiz_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
