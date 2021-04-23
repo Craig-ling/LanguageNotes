@@ -6,8 +6,8 @@ import androidx.room.*
 
 @Dao
 interface CommonSentenceDao {
-    @Query("SELECT * FROM common_sentence_table")
-    fun getCommonSentences(): LiveData<List<DatabaseCommonSentence>>
+    @Query("SELECT * FROM common_sentence_table WHERE languageKey = :langKey")
+    fun getCommonSentences(langKey: Int): LiveData<List<DatabaseCommonSentence>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllCommonSentences(vararg comSen: DatabaseCommonSentence)

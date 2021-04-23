@@ -38,7 +38,7 @@ class NumberPageFragment : Fragment() {
         binding.numberPageViewModel = numberPageViewModel
 
         // Observes changes of LiveData in the ViewModel
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         numberPageViewModel.hideNumberText()
 

@@ -37,7 +37,7 @@ class ImgquizPageFragment : Fragment() {
         binding.imgquizViewModel = imgquizViewModel
 
         // Observes changes of LiveData in the ViewModel
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
 
         setImage(binding.quizImage, imgquizViewModel.imgWord.value)
 

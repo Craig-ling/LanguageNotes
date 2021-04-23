@@ -14,20 +14,11 @@ import com.example.languagenotes.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
         val binding: FragmentMainBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_main, container, false)
-
-
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        binding.mainViewModel = viewModel
-
-        // Set lifecycle owner to observe LiveData in the view model.
-        binding.lifecycleOwner = this
 
         navigateToLanguagePageListener(binding.germanButton, 0)
         navigateToLanguagePageListener(binding.frenchButton, 1)
