@@ -6,7 +6,7 @@
     <data>
         <variable
             name="imgquizViewModel"
-            type="com.example.languagenotes.imgquizpage.ImgquizPageViewModel" />
+            type="com.teromenat.languagenotes.imgquizpage.ImgquizPageViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

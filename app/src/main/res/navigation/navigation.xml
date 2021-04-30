@@ -6,7 +6,7 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.languagenotes.ui.main.MainFragment"
+        android:name="com.teromenat.languagenotes.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/languagePageFragment"
-        android:name="com.example.languagenotes.languagepage.LanguagePageFragment"
+        android:name="com.teromenat.languagenotes.languagepage.LanguagePageFragment"
         android:label="LanguagePageFragment"
         tools:layout="@layout/fragment_language_page">
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/numberPageFragment"
-        android:name="com.example.languagenotes.numberpage.NumberPageFragment"
+        android:name="com.teromenat.languagenotes.numberpage.NumberPageFragment"
         android:label="NumberPageFragment"
         tools:layout="@layout/fragment_number_page">
         <argument
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/imgquizPageFragment"
-        android:name="com.example.languagenotes.imgquizpage.ImgquizPageFragment"
+        android:name="com.teromenat.languagenotes.imgquizpage.ImgquizPageFragment"
         android:label="ImgquizPageFragment"
         tools:layout="@layout/fragment_imgquiz_page">
         <argument
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/imgquizOverPageFragment"
-        android:name="com.example.languagenotes.imgquizpage.ImgquizOverPageFragment"
+        android:name="com.teromenat.languagenotes.imgquizpage.ImgquizOverPageFragment"
         android:label="ImgquizOverPageFragment"
         tools:layout="@layout/fragment_imgquizover_page">
         <argument
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/commonSentencesPageFragment"
-        android:name="com.example.languagenotes.commonsentencespage.CommonSentencesPageFragment"
+        android:name="com.teromenat.languagenotes.commonsentencespage.CommonSentencesPageFragment"
         android:label="CommonSentencesPageFragment"
         tools:layout="@layout/fragment_commonsentences_page">
         <argument

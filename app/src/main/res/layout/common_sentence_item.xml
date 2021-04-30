@@ -6,7 +6,7 @@
     <data>
         <variable
             name="commonSentence"
-            type="com.example.languagenotes.domain.CommonSentence" />
+            type="com.teromenat.languagenotes.domain.CommonSentence" />
     </data>
 
     <androidx.cardview.widget.CardView

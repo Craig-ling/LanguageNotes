@@ -8,7 +8,7 @@
     <data>
         <variable
             name="numberPageViewModel"
-            type="com.example.languagenotes.numberpage.NumberPageViewModel"
+            type="com.teromenat.languagenotes.numberpage.NumberPageViewModel"
             />
         <import type="android.view.View"/>
     </data>
