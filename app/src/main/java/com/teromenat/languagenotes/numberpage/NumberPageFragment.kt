@@ -44,7 +44,7 @@ class NumberPageFragment : Fragment() {
 
         numberPageViewModel.genNumberBegin.observe(viewLifecycleOwner, Observer { itBool ->
             if (itBool) {
-                var genNumber = getStringNumber(numberPageViewModel.generateNumbers(), binding)
+                var genNumber = getStringNumber(numberPageViewModel.generateNumbers(), numberPageViewModel)
                 numberPageViewModel.setNumberText(genNumber.toInt())
                 numberPageViewModel.endGenerateNumber()
             }
@@ -53,12 +53,12 @@ class NumberPageFragment : Fragment() {
         return binding.root
     }
 
-    private fun getStringNumber(numberList: List<Int>, bound: FragmentNumberPageBinding) : String {
+    private fun getStringNumber(numberList: List<Int>, viewModel: NumberPageViewModel) : String {
         val dig1 = numberList[0]
         val dig2 = numberList[1]
 
-        setDigitImage(dig1, bound.firstDigit)
-        setDigitImage(dig2, bound.secondDigit)
+        viewModel.setDigits(dig1, dig2)
+
         return if (dig1 != 0) {
             "$dig1$dig2"
         } else {
@@ -66,19 +66,19 @@ class NumberPageFragment : Fragment() {
         }
     }
 
-    private fun setDigitImage(num: Int, imgView: ImageView) {
-        when(num) {
-            0 -> imgView.setImageResource(R.drawable.zero)
-            1 -> imgView.setImageResource(R.drawable.one)
-            2 -> imgView.setImageResource(R.drawable.two)
-            3 -> imgView.setImageResource(R.drawable.three)
-            4 -> imgView.setImageResource(R.drawable.four)
-            5 -> imgView.setImageResource(R.drawable.five)
-            6 -> imgView.setImageResource(R.drawable.six)
-            7 -> imgView.setImageResource(R.drawable.seven)
-            8 -> imgView.setImageResource(R.drawable.eight)
-            9 -> imgView.setImageResource(R.drawable.nine)
-        }
-    }
+}
 
+fun setDigitImage(imgView: ImageView, num: Int) {
+    when(num) {
+        0 -> imgView.setImageResource(R.drawable.zero)
+        1 -> imgView.setImageResource(R.drawable.one)
+        2 -> imgView.setImageResource(R.drawable.two)
+        3 -> imgView.setImageResource(R.drawable.three)
+        4 -> imgView.setImageResource(R.drawable.four)
+        5 -> imgView.setImageResource(R.drawable.five)
+        6 -> imgView.setImageResource(R.drawable.six)
+        7 -> imgView.setImageResource(R.drawable.seven)
+        8 -> imgView.setImageResource(R.drawable.eight)
+        9 -> imgView.setImageResource(R.drawable.nine)
+    }
 }
