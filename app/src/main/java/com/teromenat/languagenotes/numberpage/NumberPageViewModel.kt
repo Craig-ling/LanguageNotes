@@ -17,6 +17,18 @@ class NumberPageViewModel(language: Language): ViewModel() {
     val numberText: LiveData<String>
         get() = _numberText
 
+    private val _firstDigit = MutableLiveData<Int>().apply {
+        value = 0
+    }
+    val firstDigit: LiveData<Int>
+        get() = _firstDigit
+
+    private val _secondDigit = MutableLiveData<Int>().apply {
+        value = 0
+    }
+    val secondDigit: LiveData<Int>
+        get() = _secondDigit
+
     private val _genNumberBegin = MutableLiveData<Boolean>()
     val genNumberBegin: LiveData<Boolean>
         get() = _genNumberBegin
@@ -27,6 +39,11 @@ class NumberPageViewModel(language: Language): ViewModel() {
 
     fun setNumberText(num: Int) {
         _numberText.value = numberMap[num]
+    }
+
+    fun setDigits(num1: Int, num2: Int) {
+        _firstDigit.value = num1;
+        _secondDigit.value = num2;
     }
 
     fun beginGenerateNumber() {
